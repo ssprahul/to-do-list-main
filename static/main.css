@@ -1,0 +1,308 @@
+/* ---------- RESET & GLOBAL ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ---------- NAVBAR ---------- */
+nav {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* ---------- PAGE CONTAINER ---------- */
+h2 {
+    margin: 30px 0 15px;
+    color: #fff;
+    text-align: center;
+}
+
+/* ---------- CONTENT BOX ---------- */
+p, ol, form {
+    background: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- TEXT CONTENT ---------- */
+p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+ol li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* ---------- FORMS ---------- */
+form {
+    margin-top: 20px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* ---------- BUTTON ---------- */
+input[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    p, ol, form {
+        padding: 20px;
+    }
+}
+/* ---------- ADD TASK PAGE ENHANCEMENTS ---------- */
+
+/* Style labels */
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Style select dropdowns */
+form select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect for select */
+form select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* Spacing between selects */
+form select + select {
+    margin-top: 15px;
+}
+
+/* Optional: center the Add Task form slightly lower */
+body form {
+    margin-bottom: 40px;
+}
+
+/* Optional: Add subtle animation */
+form {
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- USER DASHBOARD PAGE ---------- */
+
+/* Welcome headings spacing */
+h2 + h2 {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #eaeaff;
+}
+
+/* Center dashboard content nicely */
+.dashboard {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navigation improvement for logged-in pages */
+nav a {
+    position: relative;
+}
+
+/* Underline animation on hover */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 50%;
+    bottom: -4px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Dashboard card (for future task list) */
+.dashboard-card {
+    background: #ffffff;
+    width: 90%;
+    max-width: 700px;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Empty state text (when no tasks yet) */
+.empty-state {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    padding: 40px 20px;
+}
+
+/* Logout button emphasis (optional) */
+nav a:last-child {
+    background: rgba(255, 80, 80, 0.25);
+}
+
+nav a:last-child:hover {
+    background: rgba(255, 80, 80, 0.4);
+}
+
+/* ---------- TASK TABLE ---------- */
+
+table {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    border-collapse: collapse;          /* IMPORTANT */
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;                   /* keeps rounded corners */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Table header */
+table th {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #ffffff;
+    text-align: left;
+    padding: 14px 16px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+table th:last-child {
+    border-right: none;
+}
+
+/* Table cells */
+table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #f0f0f0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Remove right border from last column */
+table td:last-child {
+    border-right: none;
+}
+
+/* Zebra striping */
+table tr:nth-child(even) td {
+    background: #f8f9ff;
+}
+
+/* Hover effect */
+table tr:hover td {
+    background: #eef0ff;
+    transition: background 0.3s ease;
+}
+
+/* Empty message style */
+p {
+    text-align: center;
+    font-weight: 500;
+}

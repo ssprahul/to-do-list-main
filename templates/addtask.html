@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <h2>Add a New Task</h2>
+    <form action="/addtask" method="POST">
+        <label for="task">Task:</label>
+        <input type="text" id="task" name="taskname" required>
+        <br><br>
+        <select name="status">
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+        </select>
+        <select name="priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <input type="submit" value="Add Task">
+    </form>
+</body>
+</html>

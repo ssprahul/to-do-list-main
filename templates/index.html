@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-DO List User page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add-task">Add Task</a>
+        <a href='/remove-task'>Remove Task</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    <h2>Welcome to your To-DO List</h2>
+    <h2> Hello User</h2>
+
+    <h3> Hello {{username}}</h3>
+    <p>{{message}}</p>
+
+    <table>
+    <tr>
+        <th>Task</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Delete the task</th>
+    </tr>
+
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.taskname }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.priority }}</td>
+        <td>
+            <form action="/remove-task" method="POST" style="display:inline;">
+                <input type="hidden" name="taskname" value="{{ task.taskname }}">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+    
+</body>
+</html>

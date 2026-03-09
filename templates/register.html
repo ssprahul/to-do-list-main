@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+        <a href="/about">About</a>
+    </nav>
+    <h2>Registration page</h2>
+    <form action="/registerverify" method="POST">
+        Name: <input type="text" name="name"><br><br>
+        username: <input type="text" name="username"><br><br>
+        password: <input type="password" name="password"><br><br>
+        email: <input type="email" name="email"><br><br>
+        phone: <input type="tel" name="phonenumber"><br><br>
+        <input type="submit" value="Register">
+    </form>
+    
+</body>
+</html>
